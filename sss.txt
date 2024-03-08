@@ -1,0 +1,3 @@
+dotnet ef dbcontext scaffold "Server=localhost;Database=Zoo;User ID=SA;Password=VeryStr0ngP@ssw0rd;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer -o Entities -f
+
+dotnet ef dbcontext scaffold "Server=localhost;Database=Library;TrustServerCertificate=true;Trusted_Connection=True" Microsoft.EntityFrameworkCore.SqlServer -o Entities -f
