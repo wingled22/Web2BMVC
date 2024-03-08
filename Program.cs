@@ -1,6 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using Web2BMVC.Entities;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddDbContext<LibraryContext>(option => 
+    option.UseSqlServer("Server=localhost;Database=Library;User ID=SA;Password=VeryStr0ngP@ssw0rd;TrustServerCertificate=true;")
+);
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

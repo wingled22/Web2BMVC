@@ -1,0 +1,21 @@
+@model List<Web2BMVC.Entities.Book>
+
+<h1>List of Books</h1>
+
+
+<table class="table">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Author</th>
+    </thead>
+    <tbody>
+    @foreach(var book in Model){
+        <tr>
+            <td>@book.Id</td>
+            <td>@book.Name</td>
+            <td>@book.Author</td>
+        </tr>
+    }
+</tbody>
+</table>
