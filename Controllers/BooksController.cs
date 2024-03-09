@@ -9,11 +9,11 @@ using Web2BMVC.Entities;
 
 namespace Web2BMVC.Controllers
 {
-    public class NewController : Controller
+    public class BooksController : Controller
     {
-        private readonly LibraryContext _context ; 
+        private readonly LibraryContext _context;
 
-        public NewController(LibraryContext context)
+        public BooksController(LibraryContext context)
         {
             _context = context;
         }
@@ -25,13 +25,14 @@ namespace Web2BMVC.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create(){
+        public IActionResult Create()
+        {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Book b){
-
+        public IActionResult Create(Book b)
+        {
             _context.Books.Add(b);
             _context.SaveChanges();
 
@@ -39,26 +40,31 @@ namespace Web2BMVC.Controllers
         }
 
         [HttpGet]
-        public IActionResult Update(int id){
-            var book = _context.Books.Where( q => q.Id == id).FirstOrDefault();
-            return View(book);
+        public IActionResult Update(int id)
+        {
+            return View(_context.Books.Where(q=> q.Id == id).FirstOrDefault());
         }
 
         [HttpPost]
-        public IActionResult Update(Book b){
-
-            _context.Books.Update(b);
+        public IActionResult Update(Book book)
+        {
+            _context.Books.Update(book);
             _context.SaveChanges();
+
             return RedirectToAction("Index");
+
+
         }
 
-        [HttpGet]
-        public IActionResult Delete(int id){
+        public IActionResult Delete(int id)
+        {
             var book = _context.Books.Where( q => q.Id == id).FirstOrDefault();
             _context.Books.Remove(book);
             _context.SaveChanges();
-            return RedirectToAction("Index");;
-        }
 
+            return RedirectToAction("Index");
+
+
+        }
     }
 }

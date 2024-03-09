@@ -1,0 +1,16 @@
+<h2>Post Book Data Form</h2>
+
+@using (Html.BeginForm("Create", "Books", FormMethod.Post))
+{
+    <div>
+        <label for="Name">Name:</label>
+        <input type="text" name="Name" id="Name" />
+    </div>
+
+    <div>
+        <label for="Author">Author:</label>
+        <input type="text" name="Author" id="Author" />
+    </div>
+
+    <button type="submit">Submit</button>
+}
