@@ -10,6 +10,7 @@ using Web2BMVC.Entities;
 
 namespace Web2BMVC.Controllers
 {
+    
     [Authorize]
     public class BooksController : Controller
     {
@@ -25,7 +26,7 @@ namespace Web2BMVC.Controllers
             var model = _context.Books.ToList();
             return View(model);
         }
-
+        
         [HttpGet]
         public IActionResult Create()
         {
