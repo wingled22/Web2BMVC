@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Web2BMVC.Entities;
 
 namespace Web2BMVC.Controllers
 {
+    [Authorize]
     public class BooksController : Controller
     {
         private readonly LibraryContext _context;
