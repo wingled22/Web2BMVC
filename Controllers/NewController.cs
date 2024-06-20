@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Logging;
 using Web2BMVC.Entities;
 
@@ -31,6 +32,9 @@ namespace Web2BMVC.Controllers
 
         [HttpPost]
         public IActionResult Create(Book b){
+            
+            if(!ModelState.IsValid)
+                return View(b); 
 
             _context.Books.Add(b);
             _context.SaveChanges();
@@ -47,6 +51,9 @@ namespace Web2BMVC.Controllers
         [HttpPost]
         public IActionResult Update(Book b){
 
+            if(!ModelState.IsValid)
+                return View(b); 
+    
             _context.Books.Update(b);
             _context.SaveChanges();
             return RedirectToAction("Index");

@@ -19,7 +19,7 @@
             <td>@book.Name</td>
             <td>@book.Author</td>
             <td>
-                <a class="btn btn-warning" href="@Url.Action("Update", "Books", new {id =  book.Id})"> Update</a> 
+                <a class="btn btn-warning" href="@Url.Action("Update", new {id =  book.Id})"> Update</a> 
                 <a class="btn btn-danger" href="@Url.Action("delete", "Books", new {id =  book.Id})"> Delete</a> 
 
             </td>
